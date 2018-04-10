@@ -9,10 +9,14 @@ class BookmarkManager < Sinatra::Base
   end
 
   get '/add' do
+    @invalid = params[:invalid]
     erb(:add)
   end
 
   post '/adding' do
+    unless Bookmark.is_valid_url?(params[:url])
+      redirect to('/add?invalid=1')
+    end
     Bookmark.add(params[:url])
     redirect to('/')
   end

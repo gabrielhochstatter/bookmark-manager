@@ -1,3 +1,4 @@
+
 <div>
   <h2>Add your bookmark below:</h2>
 </div>
@@ -9,6 +10,10 @@
     <input type="submit" name="submit" value="Add">
   </form>
 </div>
+
+<% if @invalid == "1" %>
+<p>That wasn't a valid url!</p>
+<% end %>
 
 <div>
   <h2>Make sure the url you input includes the "http://" at the start!</h2>

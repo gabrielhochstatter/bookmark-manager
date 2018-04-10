@@ -18,7 +18,7 @@ class Bookmark
   end
 
   def self.add(url)
-    raise "not a url" unless Bookmark.is_valid_url?(url)
+    # raise "not a url" unless Bookmark.is_valid_url?(url)
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname: 'bookmark_manager_test')
     else
