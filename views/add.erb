@@ -6,14 +6,17 @@
 <div>
   <p>Input the url of the page you want to save:</p>
   <form method="post" action="/adding">
-    <input id="url" type="text" name="url">
+    <input id="title" type="text" name="title" placeholder="Title">
+    <input id="url" type="text" name="url" placeholder="URL">
     <input type="submit" name="submit" value="Add">
   </form>
 </div>
 
-<% if @invalid == "1" %>
-<p>That wasn't a valid url!</p>
-<% end %>
+
+ <% if @invalid == "1" %>
+ <p>That isn't a real url! Try again!</p>
+ <% end %>
+
 
 <div>
   <h2>Make sure the url you input includes the "http://" at the start!</h2>

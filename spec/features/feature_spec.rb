@@ -1,19 +1,19 @@
-feature "testing working" do
-  scenario "testing works" do
-
-    Bookmark.add('http://www.google.com')
-    Bookmark.add('http://www.facebook.com')
-    Bookmark.add('http://www.reddit.com')
-    Bookmark.add('http://www.scuba-diving.com')
-
-    visit('/')
-
-    expect(page).to have_content("http://www.google.com")
-    expect(page).to have_content("http://www.facebook.com")
-    expect(page).to have_content("http://www.reddit.com")
-    expect(page).to have_content('http://www.scuba-diving.com')
-  end
-end
+# feature "testing working" do
+#   scenario "testing works" do
+#
+#     Bookmark.add('http://www.google.com')
+#     Bookmark.add('http://www.facebook.com')
+#     Bookmark.add('http://www.reddit.com')
+#     Bookmark.add('http://www.scuba-diving.com')
+#
+#     visit('/')
+#
+#     expect(page).to have_content("http://www.google.com")
+#     expect(page).to have_content("http://www.facebook.com")
+#     expect(page).to have_content("http://www.reddit.com")
+#     expect(page).to have_content('http://www.scuba-diving.com')
+#   end
+# end
 
 feature "add a bookmark" do
   scenario "clicking link to add bookmark works" do
@@ -25,8 +25,17 @@ feature "add a bookmark" do
   scenario "user adds a bookmark" do
     visit('/')
     click_link('Add a bookmark')
+    fill_in('title', with: 'New Bookmark')
     fill_in('url', with: 'http://www.newbookmark.com')
     click_button('Add')
-    expect(page).to have_content 'http://www.newbookmark.com'
+    expect(page).to have_content 'New Bookmark'
+  end
+
+  scenario "user inputs an invalid url" do
+    visit('/')
+    click_link('Add a bookmark')
+    fill_in('url', with: 'not a url xd')
+    click_button('Add')
+    expect(page).to have_content("That isn't a real url! Try again!")
   end
 end

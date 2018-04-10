@@ -10,5 +10,6 @@ gem 'sinatra'
 gem 'simplecov', require: false
 gem 'simplecov-console', require: false
 gem 'pg'
+gem 'sinatra-flash'
 
 # gem "rails"
