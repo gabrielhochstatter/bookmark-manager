@@ -1,9 +1,11 @@
 require 'sinatra/base'
+require_relative 'lib/bookmark'
 
 class BookmarkManager < Sinatra::Base
 
   get '/' do
-    "testing 123"
+    @bookmarks = Bookmark.all
+    erb(:index)
   end
 
 
