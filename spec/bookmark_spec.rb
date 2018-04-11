@@ -26,6 +26,14 @@ describe Bookmark do
     end
   end
 
+  describe '#delete' do
+    it "deletes a bookmark" do
+      bookmark_5 = Bookmark.add('http://www.scuba3000.com')
+      Bookmark.delete(bookmark_5.id)
+      expect(Bookmark.all).not_to include(bookmark_5)
+    end
+  end
+
   describe '.is_valid_url?' do
     it "returns false if url is invalid" do
       expect(Bookmark.is_valid_url?("not a url")).not_to be

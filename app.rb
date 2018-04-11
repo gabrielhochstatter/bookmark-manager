@@ -25,6 +25,11 @@ class BookmarkManager < Sinatra::Base
     redirect to('/')
   end
 
+  post '/delete' do
+    Bookmark.delete(params[:id])
+    redirect to('/')
+  end
+
 
 
 

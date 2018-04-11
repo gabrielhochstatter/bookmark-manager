@@ -15,7 +15,7 @@
 #   end
 # end
 
-feature "add a bookmark" do
+feature "Bookmark Manager" do
   scenario "clicking link to add bookmark works" do
     visit('/')
     click_link('Add a bookmark')
@@ -23,11 +23,7 @@ feature "add a bookmark" do
   end
 
   scenario "user adds a bookmark" do
-    visit('/')
-    click_link('Add a bookmark')
-    fill_in('title', with: 'New Bookmark')
-    fill_in('url', with: 'http://www.newbookmark.com')
-    click_button('Add')
+    add_new_bookmark
     expect(page).to have_content 'New Bookmark'
   end
 
@@ -37,5 +33,11 @@ feature "add a bookmark" do
     fill_in('url', with: 'not a url xd')
     click_button('Add')
     expect(page).to have_content("That isn't a real url! Try again!")
+  end
+
+  scenario "user deletes a bookmark" do
+    add_test_bookmark
+    click_button("delete Test Bookmark")
+    expect(page).not_to have_content "Test Bookmark"
   end
 end
