@@ -30,6 +30,18 @@ class BookmarkManager < Sinatra::Base
     redirect to('/')
   end
 
+  get '/update' do
+    @id = params[:id]
+    @old_title = params[:old_title]
+    @old_url = params[:old_url]
+    erb(:update)
+  end
+
+  post '/updating' do
+    Bookmark.update(params[:id], params[:new_url], params[:new_title])
+    redirect to('/')
+  end
+
 
 
 

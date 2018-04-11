@@ -14,27 +14,27 @@
       <img src="./assets/0.10.2/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2018-04-11T12:19:11+01:00">2018-04-11T12:19:11+01:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2018-04-11T15:18:27+01:00">2018-04-11T15:18:27+01:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="green">94.34%</span></span>
+    (<span class="covered_percent"><span class="green">94.2%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         7.05
+         8.23
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>2</b> files in total.
-    <b>53</b> relevant lines. 
-    <span class="green"><b>50</b> lines covered</span> and
-    <span class="red"><b>3</b> lines missed </span>
+    <b>69</b> relevant lines. 
+    <span class="green"><b>65</b> lines covered</span> and
+    <span class="red"><b>4</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -53,21 +53,21 @@
       <tr>
         <td class="strong"><a href="#a800b9af065dceab4cf7e999524f8db78c45be66" class="src_link" title="app.rb">app.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>38</td>
-        <td>21</td>
-        <td>21</td>
+        <td>50</td>
+        <td>29</td>
+        <td>29</td>
         <td>0</td>
-        <td>2.1</td>
+        <td>2.2</td>
       </tr>
       
       <tr>
         <td class="strong"><a href="#006ec53ebd5f4f0aba3632a4c593deccc4ca8dc3" class="src_link" title="lib/bookmark.rb">lib/bookmark.rb</a></td>
-        <td class="green strong">90.63 %</td>
-        <td>57</td>
-        <td>32</td>
-        <td>29</td>
-        <td>3</td>
-        <td>10.3</td>
+        <td class="yellow strong">90.0 %</td>
+        <td>71</td>
+        <td>40</td>
+        <td>36</td>
+        <td>4</td>
+        <td>12.6</td>
       </tr>
       
     </tbody>
@@ -91,8 +91,8 @@
     <h3>app.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>21</b> relevant lines. 
-      <span class="green"><b>21</b> lines covered</span> and
+      <b>29</b> relevant lines. 
+      <span class="green"><b>29</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -154,14 +154,14 @@
           <code class="ruby">  get &#39;/&#39; do</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="10">
-          <span class="hits">7</span>
+        <li class="covered" data-hits="10" data-linenumber="10">
+          <span class="hits">10</span>
           
           <code class="ruby">    @bookmarks = Bookmark.all</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="11">
-          <span class="hits">7</span>
+        <li class="covered" data-hits="10" data-linenumber="11">
+          <span class="hits">10</span>
           
           <code class="ruby">    erb(:index)</code>
         </li>
@@ -184,14 +184,14 @@
           <code class="ruby">  get &#39;/add&#39; do</code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="15">
-          <span class="hits">5</span>
+        <li class="covered" data-hits="6" data-linenumber="15">
+          <span class="hits">6</span>
           
           <code class="ruby">    @invalid = params[:invalid]</code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="16">
-          <span class="hits">5</span>
+        <li class="covered" data-hits="6" data-linenumber="16">
+          <span class="hits">6</span>
           
           <code class="ruby">    erb(:add)</code>
         </li>
@@ -214,8 +214,8 @@
           <code class="ruby">  post &#39;/adding&#39; do</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="20">
-          <span class="hits">3</span>
+        <li class="covered" data-hits="4" data-linenumber="20">
+          <span class="hits">4</span>
           
           <code class="ruby">    unless Bookmark.is_valid_url?(params[:url])</code>
         </li>
@@ -238,14 +238,14 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="24">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="3" data-linenumber="24">
+          <span class="hits">3</span>
           
           <code class="ruby">    Bookmark.add(params[:url], params[:title])</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="25">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="3" data-linenumber="25">
+          <span class="hits">3</span>
           
           <code class="ruby">    redirect to(&#39;/&#39;)</code>
         </li>
@@ -292,37 +292,109 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="33">
+        <li class="covered" data-hits="1" data-linenumber="33">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby"></code>
+          <code class="ruby">  get &#39;/update&#39; do</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="34">
+        <li class="covered" data-hits="1" data-linenumber="34">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby"></code>
+          <code class="ruby">    @id = params[:id]</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="35">
+        <li class="covered" data-hits="1" data-linenumber="35">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby"></code>
+          <code class="ruby">    @old_title = params[:old_title]</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="36">
           <span class="hits">1</span>
           
-          <code class="ruby">  run! if app_file == $0</code>
+          <code class="ruby">    @old_url = params[:old_url]</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="37">
+        <li class="covered" data-hits="1" data-linenumber="37">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    erb(:update)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="38">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="39">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="38">
+        <li class="covered" data-hits="1" data-linenumber="40">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  post &#39;/updating&#39; do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="41">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    Bookmark.update(params[:id], params[:new_url], params[:new_title])</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="42">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    redirect to(&#39;/&#39;)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="43">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="44">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="45">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="46">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="47">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="48">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  run! if app_file == $0</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="49">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="50">
           
           
           <code class="ruby">end</code>
@@ -336,11 +408,11 @@
         <div class="source_table" id="006ec53ebd5f4f0aba3632a4c593deccc4ca8dc3">
   <div class="header">
     <h3>lib/bookmark.rb</h3>
-    <h4><span class="green">90.63 %</span> covered</h4>
+    <h4><span class="yellow">90.0 %</span> covered</h4>
     <div>
-      <b>32</b> relevant lines. 
-      <span class="green"><b>29</b> lines covered</span> and
-      <span class="red"><b>3</b> lines missed.</span>
+      <b>40</b> relevant lines. 
+      <span class="green"><b>36</b> lines covered</span> and
+      <span class="red"><b>4</b> lines missed.</span>
     </div>
   </div>
   
@@ -389,20 +461,20 @@
           <code class="ruby">  def initialize(id, url, title = &#39;untitled&#39;)</code>
         </li>
       
-        <li class="covered" data-hits="54" data-linenumber="8">
-          <span class="hits">54</span>
+        <li class="covered" data-hits="88" data-linenumber="8">
+          <span class="hits">88</span>
           
           <code class="ruby">    @id = id</code>
         </li>
       
-        <li class="covered" data-hits="54" data-linenumber="9">
-          <span class="hits">54</span>
+        <li class="covered" data-hits="88" data-linenumber="9">
+          <span class="hits">88</span>
           
           <code class="ruby">    @url = url</code>
         </li>
       
-        <li class="covered" data-hits="54" data-linenumber="10">
-          <span class="hits">54</span>
+        <li class="covered" data-hits="88" data-linenumber="10">
+          <span class="hits">88</span>
           
           <code class="ruby">    @title = title</code>
         </li>
@@ -431,14 +503,14 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="10" data-linenumber="15">
-          <span class="hits">10</span>
+        <li class="covered" data-hits="14" data-linenumber="15">
+          <span class="hits">14</span>
           
           <code class="ruby">    if ENV[&#39;ENVIRONMENT&#39;] == &#39;test&#39;</code>
         </li>
       
-        <li class="covered" data-hits="10" data-linenumber="16">
-          <span class="hits">10</span>
+        <li class="covered" data-hits="14" data-linenumber="16">
+          <span class="hits">14</span>
           
           <code class="ruby">      connection = PG.connect(dbname: &#39;bookmark_manager_test&#39;)</code>
         </li>
@@ -467,14 +539,14 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="10" data-linenumber="21">
-          <span class="hits">10</span>
+        <li class="covered" data-hits="14" data-linenumber="21">
+          <span class="hits">14</span>
           
           <code class="ruby">    result = connection.exec(&quot;SELECT * FROM bookmarks&quot;)</code>
         </li>
       
-        <li class="covered" data-hits="55" data-linenumber="22">
-          <span class="hits">55</span>
+        <li class="covered" data-hits="91" data-linenumber="22">
+          <span class="hits">91</span>
           
           <code class="ruby">    result.map { |bookmark| Bookmark.new(bookmark[&#39;id&#39;], bookmark[&#39;url&#39;], bookmark[&#39;title&#39;]) }</code>
         </li>
@@ -497,14 +569,14 @@
           <code class="ruby">  def self.add(url, title = &#39;untitled&#39;)</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="26">
-          <span class="hits">7</span>
+        <li class="covered" data-hits="9" data-linenumber="26">
+          <span class="hits">9</span>
           
           <code class="ruby">    if ENV[&#39;ENVIRONMENT&#39;] == &#39;test&#39;</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="27">
-          <span class="hits">7</span>
+        <li class="covered" data-hits="9" data-linenumber="27">
+          <span class="hits">9</span>
           
           <code class="ruby">      connection = PG.connect(dbname: &#39;bookmark_manager_test&#39;)</code>
         </li>
@@ -527,20 +599,20 @@
           <code class="ruby">    end</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="31">
-          <span class="hits">7</span>
+        <li class="covered" data-hits="9" data-linenumber="31">
+          <span class="hits">9</span>
           
           <code class="ruby">    sql = &quot;INSERT INTO bookmarks (url, title) VALUES($1, $2) RETURNING url, id, title;&quot;</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="32">
-          <span class="hits">7</span>
+        <li class="covered" data-hits="9" data-linenumber="32">
+          <span class="hits">9</span>
           
           <code class="ruby">    result = connection.exec(sql, [&quot;#{url}&quot;, &quot;#{title}&quot;])</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="33">
-          <span class="hits">7</span>
+        <li class="covered" data-hits="9" data-linenumber="33">
+          <span class="hits">9</span>
           
           <code class="ruby">    Bookmark.new(result.first[&#39;id&#39;], result.first[&#39;url&#39;], result.first[&#39;title&#39;])</code>
         </li>
@@ -608,82 +680,166 @@
         <li class="never" data-hits="" data-linenumber="44">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="45">
           
           
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="46">
-          
-          
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="47">
+        <li class="covered" data-hits="1" data-linenumber="46">
           <span class="hits">1</span>
           
-          <code class="ruby">  def self.is_valid_url?(url)</code>
+          <code class="ruby">  def self.find(id)</code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="48">
-          <span class="hits">5</span>
+        <li class="covered" data-hits="6" data-linenumber="47">
+          <span class="hits">6</span>
           
-          <code class="ruby">    url_regexp = /\A#{URI::regexp}\z/</code>
+          <code class="ruby">    Bookmark.all.select { |bookmark| bookmark.id == id }[0]</code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="49">
-          <span class="hits">5</span>
-          
-          <code class="ruby">    url =~ url_regexp ? true : false</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="50">
+        <li class="never" data-hits="" data-linenumber="48">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="51">
+        <li class="never" data-hits="" data-linenumber="49">
           
           
           <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="50">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def self.update(id, new_url, new_title)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="51">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    if ENV[&#39;ENVIRONMENT&#39;] == &#39;test&#39;</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="52">
           <span class="hits">1</span>
           
-          <code class="ruby">  def ==(other)</code>
+          <code class="ruby">      connection = PG.connect(dbname: &#39;bookmark_manager_test&#39;)</code>
         </li>
       
-        <li class="covered" data-hits="20" data-linenumber="53">
-          <span class="hits">20</span>
+        <li class="never" data-hits="" data-linenumber="53">
           
-          <code class="ruby">    @id == other.id</code>
+          
+          <code class="ruby">    else</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="54">
+        <li class="missed" data-hits="0" data-linenumber="54">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby">      connection = PG.connect(dbname: &#39;bookmark_manager&#39;)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="55">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">    end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="56">
           
           
+          <code class="ruby">    # bookmark_to_update = Bookmark.find(id)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="57">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    sql = &quot;UPDATE bookmarks SET url = $1, title = $2 WHERE id = $3;&quot;</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="58">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    connection.exec(sql, [&quot;#{new_url}&quot;, &quot;#{new_title}&quot;, &quot;#{id}&quot;])</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="59">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="60">
+          
+          
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="57">
+        <li class="covered" data-hits="1" data-linenumber="61">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def self.is_valid_url?(url)</code>
+        </li>
+      
+        <li class="covered" data-hits="6" data-linenumber="62">
+          <span class="hits">6</span>
+          
+          <code class="ruby">    url_regexp = /\A#{URI::regexp}\z/</code>
+        </li>
+      
+        <li class="covered" data-hits="6" data-linenumber="63">
+          <span class="hits">6</span>
+          
+          <code class="ruby">    url =~ url_regexp ? true : false</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="64">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="65">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="66">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def ==(other)</code>
+        </li>
+      
+        <li class="covered" data-hits="21" data-linenumber="67">
+          <span class="hits">21</span>
+          
+          <code class="ruby">    @id == other.id</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="68">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="69">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="70">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="71">
           
           
           <code class="ruby">end</code>

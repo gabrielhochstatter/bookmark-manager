@@ -1,0 +1,9 @@
+<h2>Enter the new information below:</h2>
+<div>
+<form method="post" action="/updating">
+<input name="new_title" type="text" value="<%= @old_title %>">
+<input name="new_url" type="text" value="<%= @old_url %>">
+<input type="hidden" name="id" value="<%= @id %>">
+<input name="submit" type="submit" value="Update">
+</form>
+</div>

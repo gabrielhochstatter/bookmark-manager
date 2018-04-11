@@ -25,6 +25,7 @@ feature "Bookmark Manager" do
   scenario "user adds a bookmark" do
     add_new_bookmark
     expect(page).to have_content 'New Bookmark'
+    expect(page).to have_link('New Bookmark', href: 'http://www.newbookmark.com')
   end
 
   scenario "user inputs an invalid url" do
@@ -39,5 +40,14 @@ feature "Bookmark Manager" do
     add_test_bookmark
     click_button("delete Test Bookmark")
     expect(page).not_to have_content "Test Bookmark"
+  end
+
+  scenario "user updates a bookmark" do
+    add_update_bookmark
+    click_button("update Update Me")
+    fill_in('new_title', with: 'Updated')
+    fill_in('new_url', with: 'http://www.updated.com')
+    click_button('Update')
+    expect(page).to have_link('Updated', href: 'http://www.updated.com')
   end
 end

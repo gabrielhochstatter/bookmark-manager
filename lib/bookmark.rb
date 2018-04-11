@@ -41,7 +41,21 @@ class Bookmark
     end
     sql = "DELETE FROM bookmarks WHERE id = $1;"
     connection.exec(sql, [id])
+  end
 
+  def self.find(id)
+    Bookmark.all.select { |bookmark| bookmark.id == id }[0]
+  end
+
+  def self.update(id, new_url, new_title)
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect(dbname: 'bookmark_manager_test')
+    else
+      connection = PG.connect(dbname: 'bookmark_manager')
+    end
+    # bookmark_to_update = Bookmark.find(id)
+    sql = "UPDATE bookmarks SET url = $1, title = $2 WHERE id = $3;"
+    connection.exec(sql, ["#{new_url}", "#{new_title}", "#{id}"])
   end
 
   def self.is_valid_url?(url)

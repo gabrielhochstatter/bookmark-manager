@@ -34,6 +34,22 @@ describe Bookmark do
     end
   end
 
+  # describe '#update' do
+  #   it "updates a bookmark" do
+  #     bookmark_6 = Bookmark.add('www.updateme.com', 'Update Me')
+  #     Bookmark.update(bookmark_6.id, 'www.updated-url.com', 'Updated')
+  #     expect(bookmark_6.url).to eq('www.updated-url.com')
+  #     expect(bookmark_6.title).to eq('Updated')
+  #   end
+  # end
+
+  describe '#find' do
+    it "finds a bookmark" do
+      bookmark = Bookmark.add('www.findme.com', 'findme')
+      expect(Bookmark.find(bookmark.id)).to eq bookmark
+    end
+  end
+
   describe '.is_valid_url?' do
     it "returns false if url is invalid" do
       expect(Bookmark.is_valid_url?("not a url")).not_to be
@@ -51,6 +67,5 @@ describe Bookmark do
 
       expect(bookmark_1).to eq bookmark_2
     end
-
   end
 end

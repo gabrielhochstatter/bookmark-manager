@@ -8,6 +8,12 @@
           <input type="hidden" name="id" value="<%= bookmark.id %>">
           <input id="delete <%= bookmark.title %>" type="submit" value="Delete">
         </form>
+        <form action="/update" method="get">
+          <input type="hidden" name="id" value="<%= bookmark.id %>">
+          <input type="hidden" name="old_title" value="<%= bookmark.title %>">
+          <input type="hidden" name="old_url" value="<%= bookmark.url %>">
+          <input id="update <%= bookmark.title %>" type="submit" value="Update">
+        </form>
       </a>
     </li>
   <% end %>
