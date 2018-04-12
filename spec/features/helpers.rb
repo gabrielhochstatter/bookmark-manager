@@ -21,3 +21,11 @@ def add_update_bookmark
   fill_in('url', with: 'http://www.updateme.com')
   click_button('Add')
 end
+
+def add_comment_bookmark
+  visit('/')
+  click_link('Add a bookmark')
+  fill_in('title', with: 'Comment Me')
+  fill_in('url', with: 'http://www.commentme.com')
+  click_button('Add')
+end

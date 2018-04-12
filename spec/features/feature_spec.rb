@@ -36,8 +36,11 @@ feature "Bookmark Manager" do
     expect(page).to have_content("That isn't a real url! Try again!")
   end
 
-  scenario "user deletes a bookmark" do
+  scenario "user deletes a bookmark with a comment attached" do
     add_test_bookmark
+    click_button("comment Test Bookmark")
+    fill_in('text', with: 'comment to be deleted xd')
+    click_button('Add')
     click_button("delete Test Bookmark")
     expect(page).not_to have_content "Test Bookmark"
   end
@@ -49,5 +52,13 @@ feature "Bookmark Manager" do
     fill_in('new_url', with: 'http://www.updated.com')
     click_button('Update')
     expect(page).to have_link('Updated', href: 'http://www.updated.com')
+  end
+
+  scenario "user adds a comment" do
+    add_comment_bookmark
+    click_button("comment Comment Me")
+    fill_in('text', with: 'commented')
+    click_button('Add')
+    expect(page).to have_content('commented')
   end
 end

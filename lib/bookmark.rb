@@ -1,6 +1,7 @@
 require 'pg'
 require 'uri'
-require 'comment'
+require_relative 'comment'
+# require 'modules'
 
 class Bookmark
   attr_reader :url, :id, :title
@@ -11,35 +12,26 @@ class Bookmark
     @title = title
   end
 
-  def self.all
-
+  def self.connection
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname: 'bookmark_manager_test')
     else
       connection = PG.connect(dbname: 'bookmark_manager')
     end
+  end
 
+  def self.all
     result = connection.exec("SELECT * FROM bookmarks")
     result.map { |bookmark| Bookmark.new(bookmark['id'], bookmark['url'], bookmark['title']) }
   end
 
   def self.add(url, title = 'untitled')
-    if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect(dbname: 'bookmark_manager_test')
-    else
-      connection = PG.connect(dbname: 'bookmark_manager')
-    end
     sql = "INSERT INTO bookmarks (url, title) VALUES($1, $2) RETURNING url, id, title;"
     result = connection.exec(sql, ["#{url}", "#{title}"])
     Bookmark.new(result.first['id'], result.first['url'], result.first['title'])
   end
 
   def self.delete(id)
-    if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect(dbname: 'bookmark_manager_test')
-    else
-      connection = PG.connect(dbname: 'bookmark_manager')
-    end
     sql = "DELETE FROM bookmarks WHERE id = $1;"
     connection.exec(sql, [id])
   end
@@ -49,12 +41,6 @@ class Bookmark
   end
 
   def self.update(id, new_url, new_title)
-    if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect(dbname: 'bookmark_manager_test')
-    else
-      connection = PG.connect(dbname: 'bookmark_manager')
-    end
-    # bookmark_to_update = Bookmark.find(id)
     sql = "UPDATE bookmarks SET url = $1, title = $2 WHERE id = $3;"
     connection.exec(sql, ["#{new_url}", "#{new_title}", "#{id}"])
   end

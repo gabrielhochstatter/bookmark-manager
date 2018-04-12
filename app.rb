@@ -8,6 +8,7 @@ class BookmarkManager < Sinatra::Base
 
   get '/' do
     @bookmarks = Bookmark.all
+    @comments = Comment.all
     erb(:index)
   end
 
@@ -26,6 +27,7 @@ class BookmarkManager < Sinatra::Base
   end
 
   post '/delete' do
+    Comment.delete(params[:id])
     Bookmark.delete(params[:id])
     redirect to('/')
   end
@@ -39,6 +41,18 @@ class BookmarkManager < Sinatra::Base
 
   post '/updating' do
     Bookmark.update(params[:id], params[:new_url], params[:new_title])
+    redirect to('/')
+  end
+
+  get '/comments/add' do
+    @id = params[:id]
+    erb(:add_comment)
+  end
+
+  post '/comments/adding' do
+    @bookmark_id = params[:bookmark_id]
+    @text = params[:text]
+    Comment.add(@text, @bookmark_id)
     redirect to('/')
   end
 

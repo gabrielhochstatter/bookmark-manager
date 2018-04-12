@@ -4,7 +4,12 @@
   <% @bookmarks.each do |bookmark| %>
     <li>
       <a href="<%= bookmark.url %>">
-        <%= bookmark.title %><form action="/delete" method="post">
+        <%= bookmark.title %></a>
+        <p>Comments:</p>
+        <% bookmark.comments.each do |comment| %>
+        <p>=> <%= comment.text %></p>
+        <% end %>
+        <form action="/delete" method="post">
           <input type="hidden" name="id" value="<%= bookmark.id %>">
           <input id="delete <%= bookmark.title %>" type="submit" value="Delete">
         </form>
@@ -14,7 +19,12 @@
           <input type="hidden" name="old_url" value="<%= bookmark.url %>">
           <input id="update <%= bookmark.title %>" type="submit" value="Update">
         </form>
-      </a>
+        <form action="/comments/add" method="get">
+          <input type="hidden" name="id" value="<%= bookmark.id %>">
+          <input id="comment <%= bookmark.title %>" type="submit" value="Add Comment">
+        </form>
+
+
     </li>
   <% end %>
 </ul>

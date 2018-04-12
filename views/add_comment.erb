@@ -1,0 +1,8 @@
+<div>
+  <p>Enter your comment below:</p>
+  <form method="post" action="/comments/adding">
+    <input id="text" type="text" name="text" placeholder="Comment text goes here...">
+    <input id="bmid" type="hidden" name="bookmark_id" value="<%= @id %>">
+    <input type="submit" name="submit" value="Add">
+  </form>
+</div>
