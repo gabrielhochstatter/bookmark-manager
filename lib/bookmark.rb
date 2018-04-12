@@ -1,5 +1,6 @@
 require 'pg'
 require 'uri'
+require 'comment'
 
 class Bookmark
   attr_reader :url, :id, :title
@@ -67,5 +68,8 @@ class Bookmark
     @id == other.id
   end
 
+  def comments
+    Comment.all.select { |comment| comment.bookmark_id == @id }
+  end
 
 end

@@ -3,7 +3,7 @@ require 'bookmark'
 describe Bookmark do
   describe '.all' do
     it 'returns all bookmarks in an array' do
-      connection = PG.connect(dbname: 'bookmark_manager_test')
+      # connection = PG.connect(dbname: 'bookmark_manager_test')
 
       bookmark_1 = Bookmark.add('http://www.google.com')
       bookmark_2 = Bookmark.add('http://www.facebook.com')
@@ -34,6 +34,7 @@ describe Bookmark do
     end
   end
 
+  # ALWAYS BROKEN SINCE BOOKMARKS AUTOMATICALLY UPDATE FROM DB
   # describe '#update' do
   #   it "updates a bookmark" do
   #     bookmark_6 = Bookmark.add('www.updateme.com', 'Update Me')
@@ -66,6 +67,17 @@ describe Bookmark do
       bookmark_2 = Bookmark.new(1, 'http://test.com')
 
       expect(bookmark_1).to eq bookmark_2
+    end
+  end
+
+  describe '#comments' do
+    it "returns an array of the comments associated with the bookmark" do
+      bookmark = Bookmark.add('http://test123.com', 'test_bm')
+      comment_1 = Comment.add('just a comment', bookmark.id)
+      comment_2 = Comment.add('whatever', bookmark.id)
+
+      expected_array = [comment_1, comment_2]
+      expect(bookmark.comments).to eq expected_array
     end
   end
 end
